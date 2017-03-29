@@ -131,9 +131,12 @@ class SerializeOperation: Operation {
 		let serializedId: Any
 		if let resourceId = linkedResource?.id {
 			serializedId = resourceId
-		} else {
-			serializedId = NSNull()
-		}
+		} else if options.contains(.OmitNullValues) {
+            // Don't add the relationship
+			return
+        } else {
+            serializedId = NSNull()
+        }
 		
 		let serializedRelationship = [
 			"data": [
