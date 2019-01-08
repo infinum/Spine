@@ -35,8 +35,8 @@ class DeserializeOperation: Operation {
 	
 	// MARK: -
 	
-	init(data: Data, resourceFactory: ResourceFactory, valueFormatters: ValueFormatterRegistry, keyFormatter: KeyFormatter) {
-		self.data = try! JSON(data: data)
+	init(data: Data, resourceFactory: ResourceFactory, valueFormatters: ValueFormatterRegistry, keyFormatter: KeyFormatter) throws {
+		self.data = try JSON(data: data)
 		self.resourceFactory = resourceFactory
 		self.valueFormatters = valueFormatters
 		self.keyFormatter = keyFormatter

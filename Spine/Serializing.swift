@@ -30,7 +30,7 @@ public class Serializer {
 	///
 	/// - returns: A JSONAPIDocument
 	public func deserializeData(_ data: Data, mappingTargets: [Resource]? = nil) throws -> JSONAPIDocument {
-		let deserializeOperation = DeserializeOperation(data: data, resourceFactory: resourceFactory, valueFormatters: valueFormatters, keyFormatter: keyFormatter)
+		let deserializeOperation = try DeserializeOperation(data: data, resourceFactory: resourceFactory, valueFormatters: valueFormatters, keyFormatter: keyFormatter)
 		
 		if let mappingTargets = mappingTargets {
 			deserializeOperation.addMappingTargets(mappingTargets)
