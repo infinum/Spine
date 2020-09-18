@@ -171,7 +171,8 @@ public class LinkedResourceCollection: ResourceCollection {
 	/// This marks the resource as newly linked. The relationship will be persisted when
 	/// the parent resource is saved.
 	public func linkResource(_ resource: Resource) {
-		assert(resource.id != nil, "Cannot link resource that hasn't been persisted yet.")
+		// Some projects need to have possibility of linking new resource so this assert is commented
+		// assert(resource.id != nil, "Cannot link resource that hasn't been persisted yet.")
 		
 		resources.append(resource)
 		
@@ -186,7 +187,8 @@ public class LinkedResourceCollection: ResourceCollection {
 	/// This marks the resource as unlinked. The relationship will be persisted when
 	/// the parent resource is saved.
 	public func unlinkResource(_ resource: Resource) {
-		assert(resource.id != nil, "Cannot unlink resource that hasn't been persisted yet.")
+		// Some projects need to have possibility of linking new resource so this assert is commented
+		// assert(resource.id != nil, "Cannot unlink resource that hasn't been persisted yet.")
 		
 		resources = resources.filter { $0 !== resource }
 		
